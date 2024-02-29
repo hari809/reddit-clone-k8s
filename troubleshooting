@@ -1,0 +1,18 @@
+permission denied : Docker 
+check the directory and docker.sock has read and write permission
+cd /var/run/
+ls -lrth docker.sock
+srw-rw---- 1 root root 0 Oct 17 11:08 docker.sock
+chmod 666 /var/run/docker.sock or chmod 777
+ls -lrth docker.sock
+ srw-rw-rw- 1 root root 0 Oct 17 11:08 docker.sock
+
+To get the kubedm token to join worker node use the command below
+kubeadm token create --print-join-command
+
+
+if the system states no storage during build you can use the below cmd to reclaim the storage 
+
+docker system prune
+docker system prune --all 
+docker system prune -af
